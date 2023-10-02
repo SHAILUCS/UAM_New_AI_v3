@@ -1,0 +1,90 @@
+{
+	"win-10-chrome": {
+		"browserName": "Chrome",
+		"bstack:options": {
+			"os": "Windows",
+			"osVersion": "10",
+			"browserVersion": "latest"
+		}
+	},
+	"win-10-chrome-headless": {
+		"browserName": "Chromeheadless",
+		"bstack:options": {
+			"os": "Windows",
+			"osVersion": "10",
+			"browserVersion": "latest"
+		}
+	},
+	"win-10-edge": {
+		"browserName": "Edge",
+		"bstack:options": {
+			"os": "Windows",
+			"osVersion": "10",
+			"browserVersion": "latest"
+		}
+	},
+	"win-10-firefox": {
+		"browserName": "Firefox",
+		"bstack:options": {
+			"os": "Windows",
+			"osVersion": "10",
+			"browserVersion": "latest"
+		}
+	},
+	"win-11-firefox": {
+		"browserName": "Firefox",
+		"bstack:options": {
+			"os": "Windows",
+			"osVersion": "11",
+			"browserVersion": "latest"
+		}
+	},
+	"win-11-chrome": {
+		"browserName": "Chrome",
+		"bstack:options": {
+			"os": "Windows",
+			"osVersion": "11",
+			"browserVersion": "latest"
+		}
+	},
+	"win-11-chrome-headless": {
+		"browserName": "Chrome",
+		"bstack:options": {
+			"os": "Windows",
+			"osVersion": "11",
+			"browserVersion": "latest"
+		}
+	},
+	"win-11-edge": {
+		"browserName": "Edge",
+		"bstack:options": {
+			"os": "Windows",
+			"osVersion": "11",
+			"browserVersion": "latest"
+		}
+	},
+	"mac-big-sur-safari": {
+		"browserName": "Safari",
+		"bstack:options": {
+			"os": "OS X",
+			"osVersion": "Big Sur",
+			"browserVersion": "latest"
+		}
+	},
+	"samsung-s20-chrome": {
+		"browserName": "Chrome",
+		"bstack:options": {
+			"deviceName": "Samsung Galaxy S20",
+			"osVersion": "10.0",
+			"browserVersion": "latest"
+		}
+	},
+	"iphone-14-safari": {
+		"browserName": "Safari",
+		"bstack:options": {
+			"deviceName": "iPhone 14",
+			"osVersion": "16",
+			"browserVersion": "latest"
+		}
+	}
+}

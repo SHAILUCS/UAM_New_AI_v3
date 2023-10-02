@@ -1,0 +1,1741 @@
+<html>
+    <head>
+	<title>Test Report</title>
+	<link rel="shortcut icon" href="https://www.selenium.dev/favicons/apple-touch-icon-180x180.png">
+ <style>
+      body {
+        color: #333;
+        font-family: "Open Sans", sans-serif;
+        font-size: 13px;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        background-color: #fff;
+        /* background-image: url(https://demo.jpg),
+          linear-gradient(
+            170deg,
+            rgb(34, 24, 39) 0%,
+            rgb(65 29 35) 33%,
+            rgb(149 61 44) 48%,
+            rgb(75 32 86) 100%
+          ); */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top;
+        margin: 0;
+        background-attachment: fixed;
+        padding-bottom: 2rem;
+        padding-right: 2rem;
+      }
+      a,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      div {
+        color: #000;
+      }
+
+      .sticky {
+        border: 1px solid lightgray;
+        padding: 3.5rem 0px 0.25rem 1rem;
+        color: #f1f1f1;
+        position: fixed;
+        top: 0px;
+        left: auto;
+        right: 0px;
+        width: calc(100% - 70px);
+        z-index: 1;
+        border-radius: 0rem 0rem 1rem 1rem;
+        background: #fff;
+        overflow: hidden;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 5px 5px #ffffff7a;
+        display: none;
+        transition: all 500ms ease;
+      }
+
+      .stickyVisible {
+        display: block !important;
+        animation: fadeDown 500ms ease;
+        z-index: 2;
+      }
+
+      @keyframes fadeDown {
+        0% {
+          height: 0;
+        }
+        25% {
+          height: 60px;
+        }
+        50% {
+          height: 120px;
+        }
+        75% {
+          height: 180px;
+        }
+        100% {
+          height: auto;
+        }
+      }
+
+      #sticky-header-data {
+        font-size: 14px;
+        float: left;
+        width: 100%;
+        padding: 2px 0px 0px 10px;
+        line-height: 1.3;
+        display: block;
+      }
+
+      #sticky-header-data table td {
+        font-size: 11px;
+        line-height: 1.1;
+      }
+
+      .sticky-header-chbx {
+        margin: 0;
+        position: absolute;
+        top: 61px;
+        left: 29px;
+      }
+
+      #sticky-header-data .title-testStatus {
+        margin: 15px 5px 0px 5px;
+      }
+
+      #sticky-header-data .title-startTime {
+        margin: 15px 5px 0px 5px;
+      }
+
+      #sticky-header-data .title-Platform {
+        margin: 15px 5px 0px 5px;
+      }
+
+      #sticky-header-data .title-Browser {
+        margin: 15px 5px 0px 5px;
+      }
+
+      #sticky-header-data .title-Movie {
+        margin: 15px 5px 0px 5px;
+      }
+
+      <!-- LEFT FIXED OBJECTS CSS -- > dont-remove {
+      }
+
+      #reportTitle {
+        background: linear-gradient(90deg, #ffaa01 1.89%, #d356ff 76.83%),
+          linear-gradient(0deg, #ffffff, #ffffff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        padding: 0px 0px 0px 10px;
+        text-align: center;
+        font-size: 2rem;
+		margin: 0px 0px 0px 0px;
+      }
+
+      #left-container {
+        position: relative;
+        border: 0px solid gray;
+        width: 96.5%;
+        margin: 4rem 0 0rem auto;
+        padding: 1rem 0 0.5rem 0;
+        border-radius: 1rem;
+        background: #f1f1f136;
+        overflow: hidden;
+        box-shadow: 0 2px 5px 5px #ffffffad;
+      }
+
+      #properties-div {
+        border: 0px solid gray;
+        margin: 5px 20px 0px 20px;
+        padding: 0px 0px 0px 0px;
+        position: relative;
+        float: left;
+        max-width: 25%;
+      }
+
+      #config {
+        word-break: break-all;
+        font-size: small;
+      }
+
+      #config th {
+        text-align: left;
+        /* background-color: aliceblue; */
+        padding: 0.3rem;
+        border-radius: 0.5rem;
+        border: 1px solid lightgrey;
+        margin: 0px;
+      }
+
+      #config td {
+        text-align: left;
+        /* background-color: aliceblue; */
+        border: 1px solid lightgrey;
+        margin: 0px;
+        padding: 0.3rem;
+        border-radius: 0.5rem;
+      }
+
+      #dashboard-div {
+        border: 0px solid gray;
+        margin: 5px 20px 0px 20px;
+        padding: 0px 0px 0px 0px;
+        max-width: 100%;
+      }
+
+      #dashboard td {
+        border: 1px solid lightgrey;
+        /* background-color: aliceblue; */
+        word-break: break-all;
+        font-size: small;
+        padding: 0.3rem;
+        border-radius: 0.5rem;
+      }
+
+      table#dashboard {
+        width: 72%;
+        margin: 0;
+        text-align: center;
+      }
+
+      span[class*="AWS"] {
+        border-radius: 4px;
+        padding: 1px;
+        background-color: blue;
+        color: white;
+      }
+
+      span[class*="STG"] {
+        border-radius: 4px;
+        padding: 1px;
+        background-color: darkred;
+        color: white;
+      }
+
+      .dashboard-header {
+        border-radius: 4px;
+        padding: 1px 0px;
+        text-align: center;
+        font-weight: 600;
+      }
+
+      .cellText-center {
+        border-radius: 4px;
+        padding: 1px 10px;
+        text-align: center;
+      }
+
+      <!-- right test objects css --> dont-remove: {
+      }
+
+      .highlight-chbox {
+        cursor: pointer;
+      }
+
+      .test {
+        border: 0px solid gray;
+        margin: 5px 0px 0px 0px;
+        padding: 10px 6px 6px 7px;
+        background-color: #ffffff;
+        border-radius: 1rem;
+        background: #f1f1f136;
+        overflow: hidden;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 5px 5px #c5c5c5ad;
+      }
+
+      #content {
+        border: 0px solid gray;
+        margin: 0px auto 0px 1%;
+        padding: 0px 0px 0px 0px;
+      }
+
+      .title {
+        margin: -22px 0px 0px 0px;
+        padding: 0px 0px 0px 2px;
+      }
+
+      .downloadTestData {
+        cursor: pointer;
+      }
+
+      .title-text {
+        border: 0px solid gray;
+        margin: 0px 0px 5px 0px;
+        padding: 0px 0px 0px 20px;
+        width: 80%;
+		font-weight: 600;
+      }
+
+      .stepCount {
+        font-size: smaller;
+        font-family: monospace;
+      }
+
+      .title-startTime {
+        float: right;
+        border: 0px solid gray;
+        margin: 0px 5px 0px 5px;
+        padding: 0px;
+      }
+
+      .title-testStatus {
+        float: right;
+        border: 0px solid gray;
+        margin: 0px 5px 0px 5px;
+        padding: 0px;
+        font-weight: bolder;
+        width: 62px;
+      }
+
+      .title-Browser {
+        float: right;
+        border: 0px solid gray;
+        margin: 0px 5px 0px 5px;
+        padding: 0px;
+      }
+
+      .title-Movie {
+        float: right;
+        border: 0px solid gray;
+        margin: 0px 5px 0px 5px;
+        padding: 0px;
+      }
+
+      .title-Platform {
+        float: right;
+        border: 0px solid gray;
+        margin: 0px 5px 0px 5px;
+        padding: 0px;
+      }
+
+      .title-testNGInfo {
+        f.tiont-family: monospace;
+        font-size: small;
+      }
+
+      .title-start-time-scenario {
+        /* background-color: green; */
+        color: green;
+        border: 0px solid black;
+        padding: 1px 5px;
+        margin: 0px;
+        border-radius: 5px;
+        font-weight: 600;
+      }
+
+      .title-end-time-scenario {
+        /* background-color: indianred; */
+        color: indianred;
+        border: 0px solid black;
+        padding: 1px 5px;
+        margin: 0px;
+        border-radius: 5px;
+        font-weight: 600;
+      }
+
+      .title-exec-time-scenario {
+        /* background-color: royalblue; */
+        color: royalblue;
+        border: 0px solid black;
+        padding: 1px 5px;
+        margin: 0px;
+        border-radius: 5px;
+        font-weight: 600;
+      }
+
+      #steps {
+        display: none;
+      }
+
+      .stepLI {
+        border: 0px solid black;
+        margin: 5px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
+      }
+
+      #steps-tab tr {
+        border-bottom: 1px solid grey;
+      }
+
+      #steps-tab th {
+        font-family: monospace;
+        font-size: medium;
+      }
+
+      #steps-tab td {
+        font-family: monospace;
+        font-size: medium;
+      }
+
+      .expand_collapse_test {
+        float: right;
+        margin: -23px 25px;
+        position: relative;
+        z-index: 1;
+        cursor: pointer;
+      }
+
+      .expand_collapse_node {
+        float: right;
+        margin: -26px 2px;
+        position: relative;
+        z-index: 1;
+        cursor: pointer;
+      }
+
+      .node {
+        border-bottom: 1px solid #ddddff;
+        margin: -25px 0px 0px;
+        padding: 0px 0px 0px 2px;
+        background-color: #eff6fe80;
+        border-radius: 0.5rem;
+        padding: 0 0.5rem;
+      }
+
+      .step {
+        font-family: monospace;
+        font-size: medium;
+        border-bottom: 1px solid lightgray;
+        margin: 5px;
+        padding: 1px;
+        /* display: flex; */
+      }
+
+      .steps-step-Status {
+        float: left;
+        border: 0px solid gray;
+        margin: 0px 5px 0px 5px;
+        padding: 0px;
+        font-weight: bolder;
+        width: 50px;
+        order: 1;
+      }
+
+      .steps-step-startTime {
+        float: right;
+        border: 0px solid gray;
+        margin: 0px 5px 0px 5px;
+        padding: 0px;
+        color: dimgrey;
+        order: 3;
+      }
+
+      #stepLI-highlight {
+        background-color: antiquewhite;
+        box-shadow: 1px 1px 2px 1px grey;
+      }
+
+      .steps-step-text {
+        border: 0px solid gray;
+        margin: 0px 0px 5px 0px;
+        padding: 0px;
+        width: 100%;
+        word-break: break-word;
+        order: 2;
+      }
+
+      .steps-step-snap {
+        position: relative;
+        border: 0px solid gray;
+        margin: 0px 5px 0px 5px;
+        padding: 0px;
+      }
+
+      .snapSize {
+        max-width: 250px;
+        max-height: 250px;
+      }
+
+      .status {
+        width: 60px;
+      }
+
+      .timestamp {
+        width: 100px;
+      }
+
+      .step-details {
+      }
+
+      .total {
+        color: blue;
+      }
+
+      .pass {
+        color: green;
+        border: 0px solid green;
+        background-color: transparent;
+        font-size: 11px;
+        line-height: 2;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 5px 5px !important;
+        border-radius: 20px;
+      }
+
+      .info {
+        color: blue;
+        border: 0px solid blue;
+        background-color: transparent;
+        font-size: 11px;
+        line-height: 2;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 5px 5px !important;
+        border-radius: 20px;
+      }
+
+      .fail {
+        color: #d71a1a;
+        border: 0px solid #d71a1a;
+        background-color: transparent;
+        font-size: 11px;
+        line-height: 2;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 5px 5px !important;
+        border-radius: 20px;
+      }
+
+      .fatal {
+        color: #b71c1c;
+        border: 0px solid #b71c1c;
+        background-color: transparent;
+        font-size: 11px;
+        line-height: 2;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 5px 5px !important;
+        border-radius: 20px;
+      }
+
+      .warning {
+        color: #ffc400;
+        border: 0px solid #ffc400;
+        background-color: transparent;
+        font-size: 11px;
+        line-height: 2;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 5px 5px !important;
+        border-radius: 20px;
+      }
+
+      .error {
+        color: #ec407a;
+        border: 0px solid #ec407a;
+        background-color: transparent;
+        font-size: 11px;
+        line-height: 2;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 5px 5px !important;
+        border-radius: 20px;
+      }
+
+      .skip {
+        color: brown;
+        border: 0px solid brown;
+        background-color: transparent;
+        font-size: 11px;
+        line-height: 2;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 5px 5px !important;
+        border-radius: 20px;
+      }
+
+      a {
+        color: blue;
+        text-decoration: none;
+      }
+
+      .exp_col {
+        cursor: pointer;
+      }
+
+      #filter {
+        position: fixed;
+        top: 0;
+        right: 0%;
+        z-index: 3;
+        margin: 0% 0% 0% 0%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem;
+        width: calc(100% - 69px);
+        background: #009688;
+        column-gap: 0.2rem;
+      }
+
+      div#filter input[type="text"],
+      #filter select {
+        background: #fff;
+        width: 100%;
+        height: 2rem;
+        border: 1px solid blueviolet;
+        border-radius: 0rem;
+        font-family: calibri;
+        transition: all 300ms ease;
+        color: #000 !important;
+        font-weight: 000;
+        font-size: 0.8rem;
+        text-align: center;
+        box-shadow: none;
+      }
+      div#filter input::placeholder {
+        color: #000 !important;
+        font-weight: 000;
+        font-size: 0.8rem;
+      }
+
+      #filter select {
+        width: auto;
+        padding: 0 0.2rem;
+      }
+      div#filter input[type="button"] {
+        background: #fff;
+        color: #009688 !important;
+        box-shadow: none;
+        height: 2rem;
+        border-radius: 1rem;
+        font-size: 1.3rem;
+        font-weight: 900;
+        padding: 0 0.7rem;
+        transition: all 500ms ease;
+      }
+      div#filter input[type="button"]:hover {
+        box-shadow: 0 3px 10px 2px #ffffffb9;
+        cursor: pointer;
+        transform: translateY(-2.5px);
+      }
+
+      .filterText {
+        border: 0px solid #000000;
+        border-radius: 5px;
+        box-shadow: 0px 0px 1px 1px red;
+        margin: 0% 0 0 0%;
+        padding: 0px;
+        height: 22px;
+      }
+
+      select.filterText {
+        color: green;
+        font-size: x-small;
+      }
+
+      input.filterText {
+        font-family: monospace;
+      }
+
+      .filterButton {
+        font-family: monospace;
+        font-size: small;
+        border: 0px solid #000000;
+        border-radius: 5px;
+        box-shadow: 0px 0px 1px 1px red;
+        margin: 0% 0 0 0%;
+        padding: 5px;
+        color: #333;
+        background: rgba(255, 255, 255, 0.5);
+        background-image: -webkit-linear-gradient(top, #e6e6e6, #cccccc);
+        background-image: -moz-linear-gradient(top, #e6e6e6, #cccccc);
+        background-image: -ms-linear-gradient(top, #e6e6e6, #cccccc);
+        background-image: -o-linear-gradient(top, #e6e6e6, #cccccc);
+        background-image: linear-gradient(to bottom, #e6e6e6, #cccccc);
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#E6E6E6, endColorstr=#CCCCCC);
+      }
+
+      .filterButton:hover {
+        cursor: pointer;
+        background-image: -webkit-linear-gradient(top, #cccccc, #e6e6e6);
+        background-image: -moz-linear-gradient(top, #cccccc, #e6e6e6);
+        background-image: -ms-linear-gradient(top, #cccccc, #e6e6e6);
+        background-image: -o-linear-gradient(top, #cccccc, #e6e6e6);
+        background-image: linear-gradient(to bottom, #cccccc, #e6e6e6);
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#CCCCCC, endColorstr=#E6E6E6);
+      }
+
+      .title-testNGInfo table {
+        width: 100%;
+      }
+      .title-testNGInfo tbody {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-row-gap: 3px;
+      }
+      .title-testNGInfo tbody tr:first-child {
+        grid-column: 1 / span 2;
+      }
+
+      .w3-teal {
+        color: #fff !important;
+        background-color: #009688 !important;
+        position: fixed;
+        top: 0;
+      }
+
+      .w3-xlarge {
+        font-size: 24px !important;
+      }
+
+      .w3-teal:hover {
+        color: #000 !important;
+        background-color: #aaa !important;
+      }
+
+      .w3-btn,
+      .w3-button {
+        border: none;
+        display: inline-block;
+        padding: 8px 16px;
+        vertical-align: middle;
+        overflow: hidden;
+        text-decoration: none;
+        color: inherit;
+        background-color: inherit;
+        text-align: center;
+        cursor: pointer;
+        white-space: nowrap;
+        z-index: 1;
+      }
+
+      .w3-button:hover {
+        background-color: #efefef !important;
+      }
+
+      .w3-border-right {
+        border-right: 1px solid #ccc !important;
+      }
+
+      .w3-sidebar {
+        height: 100%;
+        width: 200px;
+        position: fixed !important;
+        z-index: 3;
+        overflow-x: hidden;
+        top: 0;
+        width: 30%;
+        border-right: none !important;
+      }
+	  
+	  .quickViewTest{
+	    width: 100%;
+        display: block;
+        padding: 5px 0px;
+        text-align: left;
+        border: none;
+        white-space: normal;
+        float: none;
+        outline: 0;
+        border-bottom: 1px solid #e4e4e4;
+        font-size: 13px;
+		word-wrap: break-word;
+	  }
+
+      .w3-bar-block .w3-bar-item {
+        width: 100%;
+        display: block;
+        padding: 8px 16px;
+        text-align: left;
+        border: none;
+        white-space: normal;
+        float: none;
+        outline: 0;
+        border-bottom: 1px solid;
+        font-size: 13px;
+      }
+
+      .w3-large {
+        font-size: 18px !important;
+      }
+
+      button#makeItFixed {
+        background: #009688;
+        text-align: end;
+        position: fixed;
+        cursor: pointer;
+        height: 3rem;
+        width: auto !important;
+        color: #fff;
+        font-size: 1.5rem !important;
+        border: none;
+      }
+
+      #mySideBar_items {
+        margin: 0;
+        padding: 1rem 0 0 1rem;
+        overflow-y: auto;
+        background-color: #fff;
+        position: fixed;
+        width: 30%;
+        top: 3rem;
+        height: 91%;
+        overflow-x: hidden;
+        --border-color: #e4e4e4;
+      }
+      #mySideBar_items ol {
+        border-left: 1px solid var(--border-color);
+        border-top: 1px solid var(--border-color);
+        border-right: none;
+        padding-left: 20px;
+        /* padding-bottom: 5px;
+        border-radius: 0.5rem; */
+      }
+	  
+	  #mySideBar_items .sidenavItems > ol > li {
+		padding: 14px 0px;
+	  }
+	  
+      #mySideBar_items .sidenavItems > ol {
+        border-bottom: 1px solid var(--border-color);
+        border-right: 1px solid var(--border-color);
+      }
+      #mySideBar_items .w3-bar-item,
+      #mySideBar_items .add-custom-arrow {
+        border-bottom: 0;
+      }
+
+      .miniBarProgress {
+        text-align: center;
+      }
+      .miniBar {
+        border: 1px solid #8a898a;
+        position: relative;
+        width: -webkit-calc(100% - 2rem);
+        width: -moz-calc(100% - 2rem);
+        width: 100%;
+        margin-right: 0.5rem;
+        color: white;
+        font-weight: bold;
+        -webkit-align-items: stretch;
+        align-items: stretch;
+        display: flex;
+        height: 1.2rem;
+        border-radius: 0.5rem;
+      }
+      .miniBar > div:first-child {
+        border-radius: 0.5rem 0rem 0rem 0.5rem;
+      }
+      .miniBar > div:last-child {
+        border-radius: 0rem 0.5rem 0.5rem 0rem;
+      }
+
+      .tooltips {
+        position: relative;
+      }
+      .mini-middle::after {
+        content: "";
+        border-bottom: 8px solid #000000;
+        width: 0px;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        top: -4px;
+      }
+      .mini-middle {
+        position: absolute;
+        left: 50%;
+        background: #000;
+        transform: translate(-50%, -50%);
+        padding: 2px 7px;
+        border-radius: 4px;
+        bottom: -39px;
+        width: 50px;
+        color: #fff;
+      }
+
+      .green .mini-middle::after {
+        border-bottom-color: green;
+      }
+
+      .green .mini-middle {
+        background: green;
+      }
+
+      .red .mini-middle::after {
+        border-bottom-color: red;
+      }
+
+      .red .mini-middle {
+        background: red;
+      }
+
+      .brown .mini-middle::after {
+        border-bottom-color: brown;
+      }
+
+      .brown .mini-middle {
+        background: brown;
+      }
+
+      .add-custom-arrow {
+        cursor: pointer;
+        border-bottom: 1px solid #ddddff;
+        padding: 5px 0px;
+        /* background-color: #e2e2e263; */
+        margin-top: 5px;
+      }
+
+      .add-custom-arrow::after {
+        content: "";
+        display: inline-block;
+        width: 0;
+        height: 0;
+
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-bottom: 0px solid #000;
+        border-top: 9px solid #000;
+
+        float: right;
+        margin-right: 15px;
+        margin-top: 10px;
+      }
+
+      .add-custom-arrow.collapsed::after {
+        border-left: 10px solid #888;
+        border-right: 0px solid #888;
+        border-top: 6px solid transparent;
+        border-bottom: 6px solid transparent;
+      }
+      .quickviewMethodList {
+        border-left: 1px solid rgb(119, 119, 119);
+        padding: 10px 30px;
+        display: block;
+      }
+      span.btn_0.group {
+         background-color: #fff;
+		border: 1px solid #a1a09c;
+		color: #919191;
+		Font-size: 11px;
+		line-height: 2.5;
+		Font-weight: 600;
+		text-transform: uppercase;
+		padding: 5px 5px;
+		border-radius: 20px;
+      }
+
+      .set_time_sheduleds {
+        font-size: 12px;
+      }
+
+      #sticky-header-data > div > div,
+      .test-content {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        column-gap: 8px;
+      }
+      #sticky-header-data > div > div *,
+      .test-content * {
+        margin: 0 !important;
+        width: auto;
+        padding: 0;
+      }
+      #sticky-header-data > div > div .downloadTestData,
+      .test-content .downloadTestData {
+        padding: 0 0.25rem;
+      }
+      #sticky-header-data > div > div .title-testStatus,
+      .test-content .title-testStatus {
+        order: 1;
+        padding-left: 20px;
+      }
+      #sticky-header-data > div > div .title-startTime,
+      .test-content .title-startTime {
+        order: 6;
+        padding-right: 13px;
+      }
+      #sticky-header-data > div > div .title-Platform,
+      .test-content .title-Platform {
+        order: 5;
+      }
+      #sticky-header-data > div > div .title-Browser,
+      .test-content .title-Browser {
+        order: 4;
+      }
+      #sticky-header-data > div > div .title-Movie,
+      .test-content .title-Movie {
+        order: 3;
+      }
+      #sticky-header-data > div > div .title-text,
+      .test-content .title-text {
+        order: 2;
+        margin-right: auto !important;
+      }
+      #sticky-header-data > div > div .title-testNGInfo,
+      .test-content .title-testNGInfo {
+        width: 100%;
+        order: 7;
+        margin-top: 0.25rem !important;
+      }
+      #sticky-header-data > div > div .title-testNGInfo table,
+      .test-content .title-testNGInfo table {
+        width: 100%;
+      }
+      #sticky-header-data > div > div .title-testNGInfo table *,
+      .test-content .title-testNGInfo table * {
+        font-size: 13px;
+      }
+	  .testNG-test{
+	  }
+	  .testNG-class{
+		
+	  }
+		.node>div {
+			display: flex;
+			align-items: center;
+			padding-left: 0.5rem;
+			padding-top: 0.3rem;
+			padding-bottom: 0.3rem;
+		}
+		.node>div *{
+			margin: 0;
+		}
+		.node>div .title-testStatus{
+			order: 1;
+		}
+		.node>div .title-startTime {
+			order: 4;
+			margin-right: 30px;
+		}
+		.node>div .title-text{
+			order: 3;
+		}
+		.node>div .stepCount{
+			order: 2;
+			white-space: nowrap;
+		}
+    </style>
+    </head>
+    <body>
+        <div id="filter">
+			
+			<select name="titlefilter" class="filterText" onchange="performTitleSearch()" title ="Condition applied on test title search">
+				<option value="contains-multiple">contains-multiple(&&)</option>
+				<option value="not-contains">not-contains</option>
+			</select>
+			<input type="text" id="search" value="" onkeyup="performTitleSearch()" class='filterText' placeholder="Type here to search in test titles..." title ="Type here to search in test titles...">
+			
+            <select name="stepsfilter" class="filterText"onchange="performAllStepsSearch()" title ="Condition applied on steps search">
+				<option value="contains-multiple">contains-multiple(&&)</option>
+				<option value="not-contains">not-contains</option>
+			</select>
+			<input type="text" id="search-steps" onkeyup="performAllStepsSearch()" value="" class='filterText' placeholder="Type here to search in steps..." title ="Type here to search in steps...">
+			<input type='button' value ="&#8634;" title='&#8634; RESET SEARCH' class="filterButton" onclick='resetFields()'>
+            <input type="button" id="buttExpand" value="&#8609;" title ="&#8609; EXPAND ALL" class="filterButton" onclick="expandAll()">
+            <input type="button" id="buttCollapse" value="&#8607;" title="&#8607; COLLAPSE ALL" class="filterButton" onclick="collapseAll()">
+            <input type="button" value="&DownArrowBar;" title="&DownArrowBar; Download" class="filterButton" onclick ="downloadFile()">
+            
+			
+        </div>
+	
+	<div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+	  <button onclick="w3_close()" id="makeItFixed" 
+	   class="w3-bar-item w3-large" title ="Hide test tree">x</button>
+	  <!-- PICKER0_START -->
+	  <ol id="mySideBar_items">
+		<!-- quickAccess_items -->
+	  </ol>
+	  <!-- PICKER0_END -->
+	</div>
+	<button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()" title ="Show test tree">&#9776;</button>
+	
+		
+	<div id="left-container">
+	
+		<div id="chart-data" style="display:none;"> 
+			Scenarios Total for chart : <!-- TOTAL-CHART-START --><!-- TOTAL-CHART-END -->
+			Scenarios Passed for chart : <!-- PASS-CHART-START --><!-- PASS-CHART-END -->
+			Scenarios Failed for chart : <!-- FAIL-CHART-START --><!-- FAIL-CHART-END -->
+			Scenarios Skipped for chart : <!-- SKIP-CHART-START --><!-- SKIP-CHART-END -->
+		</div>
+	
+		<div id="properties-div">
+			<table border="0" id="config">
+				<tbody>	
+					<tr><th colspan=2>CONFIGURATION</th></tr>
+					<tr><th>Parallel Mode:</th><td> <!-- paralleMode --></td></tr>
+					<tr><th>Thread Count:</th><td> <!-- threadCount --></td></tr>
+					<tr><th>Assertion Enabled:</th><td> <!-- assertionEnabled --></td></tr>
+					<tr><th>Capturing Movie:</th><td> <!-- capturingSnapshots --></td></tr>
+					<tr><th>Implicit Wait:</th><td> <!-- implicitWait --></td></tr>
+					<tr><th>Explicit Wait:</th><td> <!-- explicitWait --></td></tr>
+					<tr><th>Browser Width:</th><td> <!-- width --> px</td></tr>
+					<tr><th>Browser Height:</th><td> <!-- height --> px</td></tr>
+				</tbody>	
+			</table>
+		</div>	
+		
+		<div id="dashboard-div">
+		
+			<a target="_blank" href="../../../"> WorkSpace</a> /
+			<a target="_blank" href="../../../Report/Report_Redesign_Template.html">Latest Run Report</a> /
+			<a target="_blank" href="Report_Extent.html"> Extent Report</a> /
+			<a target="_blank" href="../../HTML/page1.html"> Test History</a>
+			
+			<!-- PICKER1_START -->
+			<table border="0" id="dashboard">
+				<tbody>
+					<tr>
+						<td colspan="8" class="dashboard-header" >
+							DASHBOARD
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3"><b>Env</b>: <!-- Environment --></td>
+						<td colspan="3"><b>Suite</b>: <!-- Suite --></td>
+						<td colspan="2"><b>Run mode</b>: <!-- Run_mode --></td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr>
+						<td colspan="3" class="dashboard-header">Start</td>
+						<td colspan="3" class="dashboard-header">End</td>
+						<td colspan="2" class="dashboard-header">Time Taken</td>
+					</tr>
+					<tr>
+						<td colspan="3" class="cellText-center"><!-- execStartPlaceholder --></td>
+						<td colspan="3" class="cellText-center"><!-- execEndPlaceholder --></td>
+						<td colspan="2" class="cellText-center"><!-- execTimePlaceholder --></td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr style="font-weight: 600;">
+						<td/>
+						<td class='total'>#Total</td>
+						<td class='pass'>#Passed</td>
+						<td class='fail'>#Failed</td>
+						<td class='skip'>#Skipped</td>
+						<td class='error'>#Error</td>
+						<td class='warning'>#Warning</td>
+						<td class='fatal'>#Fatal</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Scenario</td>
+						<td style="text-align: center;">
+							<!-- TOTAL_SCENARIOS -->
+						</td>
+						<td style="text-align: center;">
+							<!-- PASSED_SCENARIOS -->
+						</td>
+						<td style="text-align: center;">
+							<!-- FAILED_SCENARIOS -->
+						</td>
+						<td style="text-align: center;">
+							<!-- SKIPPED_SCENARIOS -->
+						</td>
+						<td style="text-align: center;">
+							<!-- ERROR_SCENARIOS -->
+						</td>
+						<td style="text-align: center;">
+							<!-- WARNING_SCENARIOS -->
+						</td>
+						<td style="text-align: center;">
+							<!-- FATAL_SCENARIOS -->
+						</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Steps</td>
+						<td style="text-align: center;">
+							<!-- TOTAL_Step -->
+						</td>
+						<td style="text-align: center;">
+							<!-- PASSED_Step -->
+						</td>
+						<td style="text-align: center;">
+							<!-- FAILED_Step -->
+						</td>
+						<td style="text-align: center;">
+							<!-- SKIPPED_Step -->
+						</td>
+						<td style="text-align: center;">
+							<!-- ERROR_Step -->
+						</td>
+						<td style="text-align: center;">
+							<!-- WARNING_Step -->
+						</td>
+						<td style="text-align: center;">
+							<!-- FATAL_Step -->
+						</td>
+					</tr>
+					<tr>
+						<td colspan="8" style='background: transparent; border: 0;'>
+							<!-- percentageBar -->
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- PICKER1_END -->
+		</div>
+	</div>
+	<div id="content">
+	
+	
+	
+	
+		<h2 id="reportTitle"><!-- PROJECT --> Execution Report</h2> 		
+		
+		<div id='sticky-header' class='sticky'>
+				<span id="sticky-header-data">
+				</span>
+				<input class='sticky-header-chbx' type='checkbox' onclick='stikyHeaderFindAndCheckUncheckTitle()'>
+			</div>
+		<ol>
+			<!-- INSERT_RESULTS -->
+		</ol>
+	</div>
+
+</body>
+
+    <script>
+	
+		
+	window.onload = function() {
+		//var title = getElementsByXPath("//*[@class='expand_collapse_test']");
+		//var title = getElementsByXPath("//div[@class='title']");
+		var node = getElementsByXPath("//*[@class='expand_collapse_node']");
+		//var node = getElementsByXPath("//div[@class='node']");
+
+		/*for (var i = 0; i < title.length; i++) {
+			initData(title[i]);
+			title[i].onclick = function() {
+				displayData(this);
+			};
+		}*/
+
+		for (var i = 0; i < node.length; i++) {
+			initData(node[i]);
+			node[i].onclick = function() {
+				displayData(this);
+			};
+		}
+
+		assignQuickAccessIds();
+		initTitlesOffestArray();
+		w3_open();
+		
+	};
+
+	function initData(val) {
+		var value = val.nextElementSibling;
+		if (value != null) {
+			value.style.display = "none";
+		}
+	}
+
+	function displayData(val) {
+		var value = val.parentElement.nextElementSibling;
+		if (value != null) {
+			if (value.style.display == "" || value.style.display == "none")
+				value.style.display = "block";
+			else if (value.style.display == "block")
+				value.style.display = "none";
+		}
+		initTitlesOffestArray();
+	}
+	
+	
+	function hideShowTestStepsAsPerId(val) {
+		var titleId = val.parentElement.id;
+		var matchingTitleObject = getElementsByXPath("//div[@id='"
+				+ titleId + "']//ancestor::div[@class='title']")[0];
+
+		var value = matchingTitleObject.nextElementSibling;
+		if (value != null) {
+			if (value.style.display == "" || value.style.display == "none")
+				value.style.display = "block";
+			else if (value.style.display == "block")
+				value.style.display = "none";
+		}
+		initTitlesOffestArray();
+	}
+
+	function expandAll() {
+		var className = document.getElementsByClassName("title");
+		for (i = 0; i < className.length; i++) {
+			className[i].nextElementSibling.style.display = "block";
+		}
+		className = document.getElementsByClassName("node");
+		for (i = 0; i < className.length; i++) {
+			var temp = className[i].nextElementSibling;
+			if (temp != null) {
+				temp.style.display = "block";
+			}
+		}
+		initTitlesOffestArray();
+	}
+
+	function collapseAll() {
+		var className = document.getElementsByClassName("title");
+		for (i = 0; i < className.length; i++) {
+			className[i].nextElementSibling.style.display = "none";
+		}
+
+		className = document.getElementsByClassName("node");
+		for (i = 0; i < className.length; i++) {
+			var temp = className[i].nextElementSibling;
+			if (temp != null) {
+				temp.style.display = "none";
+			}
+		}
+		initTitlesOffestArray();
+	}
+
+	function setHighlightStepObjectId(hideShowObject) {
+		hideShowObject.id = "stepLI-highlight";
+	}
+
+	function setNotHighlightStepObjectId(hideShowObject) {
+		hideShowObject.id = "";
+	}
+
+	function setVisibleObject(hideShowObject) {
+		hideShowObject.style.display = "list-item";
+	}
+
+	function setHiddenObject(hideShowObject) {
+		hideShowObject.style.display = "none";
+	}
+
+	function getTitleHideShowObject(generalObject) {
+		return generalObject.parentElement;
+	}
+
+	function displayAllTitleElements(objectArray) {
+		for (i = 0; i < objectArray.length; i++) {
+			setVisibleObject(getTitleHideShowObject(objectArray[i]));
+		}
+	}
+
+	function displayAllStepsElements(objectArray) {
+		for (i = 0; i < objectArray.length; i++) {
+			setVisibleObject(objectArray[i]);
+			setNotHighlightStepObjectId(objectArray[i]);
+		}
+	}
+
+	function notContainsSearchTitleElements(objectArray, searchFieldVal) {
+		for (i = 0; i < objectArray.length; i++) {
+			var str = objectArray[i].textContent;
+			if (str.toLowerCase().includes(searchFieldVal.toLowerCase())) {
+				setHiddenObject(getTitleHideShowObject(objectArray[i]));
+			} else {
+				setVisibleObject(getTitleHideShowObject(objectArray[i]));
+			}
+		}
+	}
+
+	function notContainsSearchStepsElements(objectArray, searchFieldVal) {
+		for (i = 0; i < objectArray.length; i++) {
+			var str = objectArray[i].textContent;
+			if (str.toLowerCase().includes(searchFieldVal.toLowerCase())) {
+				setHiddenObject(objectArray[i]);
+				setNotHighlightStepObjectId(objectArray[i]);
+			} else {
+				setVisibleObject(objectArray[i]);
+				setHighlightStepObjectId(objectArray[i]);
+			}
+		}
+	}
+
+	function containsMultipleSearchStepsElements(objectArray, searchFieldVal) {
+		var searchArr = [ searchFieldVal ];
+		if (searchFieldVal.includes("&&")) {
+			searchArr = searchFieldVal.split("&&");
+		}
+
+		for (i = 0; i < objectArray.length; i++) {
+			var visible = true;
+
+			var str = objectArray[i].textContent;
+			for (j = 0; j < searchArr.length; j++) {
+				if (!str.toLowerCase().includes(
+						searchArr[j].trim().toLowerCase())) {
+					visible = visible && false;
+				}
+			}
+
+			if (visible) {
+				setVisibleObject(objectArray[i]);
+				setHighlightStepObjectId(objectArray[i]);
+			} else {
+				setHiddenObject(objectArray[i]);
+				setNotHighlightStepObjectId(objectArray[i]);
+			}
+		}
+	}
+
+	function containsMultipleSearchTitleElements(objectArray, searchFieldVal) {
+		var searchArr = [ searchFieldVal ];
+		if (searchFieldVal.includes("&&")) {
+			searchArr = searchFieldVal.split("&&");
+		}
+
+		for (i = 0; i < objectArray.length; i++) {
+			var visible = true;
+
+			var str = objectArray[i].textContent;
+			for (j = 0; j < searchArr.length; j++) {
+				if (!str.toLowerCase().includes(
+						searchArr[j].trim().toLowerCase())) {
+					visible = visible && false;
+				}
+			}
+
+			if (visible) {
+				setVisibleObject(getTitleHideShowObject(objectArray[i]));
+			} else {
+				setHiddenObject(getTitleHideShowObject(objectArray[i]));
+			}
+		}
+	}
+
+	function resetFields() {
+		document.getElementById("search").value = "";
+		document.getElementById("search-steps").value = "";
+		document.getElementsByName("titlefilter")[0].selectedIndex = 0;
+		document.getElementsByName("stepsfilter")[0].selectedIndex = 0;
+		performTitleSearch();
+		performAllStepsSearch();
+	}
+
+	function performTitleSearch() {
+		var searchFieldVal = document.getElementById("search").value;
+		var titleObjects = document.getElementsByClassName("title");
+		var titleFilter = document.getElementsByName("titlefilter")[0].value;
+
+		if (searchFieldVal == "") {
+			displayAllTitleElements(titleObjects);
+		} else {
+			//Check the search Algorithm
+			if (titleFilter == "not-contains") {
+				notContainsSearchTitleElements(titleObjects, searchFieldVal);
+			} else if (titleFilter == "contains-multiple") {
+				containsMultipleSearchTitleElements(titleObjects,
+						searchFieldVal);
+			}
+		}
+
+		initTitlesOffestArray();
+	}
+
+	function performAllStepsSearch() {
+		var searchFieldVal = document.getElementById("search-steps").value;
+		var titleObjects = getElementsByXPath("//div[@class='step']/..");
+		var titleFilter = document.getElementsByName("stepsfilter")[0].value;
+
+		if (searchFieldVal == "") {
+			displayAllStepsElements(titleObjects);
+		} else {
+			//Check the search Algorithm
+			if (titleFilter == "not-contains") {
+				notContainsSearchStepsElements(titleObjects, searchFieldVal);
+			} else if (titleFilter == "contains-multiple") {
+				containsMultipleSearchStepsElements(titleObjects,
+						searchFieldVal);
+			}
+		}
+
+		hideShowNodesBasedOnSteps();
+
+		initTitlesOffestArray();
+	}
+
+	function hideShowNodesBasedOnSteps() {
+		/*
+				if atleast one step is visible under a node
+				we will not hide that node, and if all steps are hidden
+				then we will hide the node
+		 */
+		var nodeObjects = getElementsByXPath("//div[@class='node']");
+
+		for (ee = 0; ee < nodeObjects.length; ee++) {
+			var atleastOneIsVisible = true;
+			var followingSibling = nodeObjects[ee].nextElementSibling;
+			if (followingSibling != null) {
+				var liObjects = followingSibling.getElementsByTagName("li");
+
+				for (j = 0; j < liObjects.length; j++) {
+					var value = liObjects[j];
+					if (value != null) {
+						if (value.style.display != "none") {
+							atleastOneIsVisible = false;
+							break;
+						}
+					}
+				}
+
+				if (atleastOneIsVisible) {
+					nodeObjects[ee].parentElement.style.display = "none";
+				} else {
+					nodeObjects[ee].parentElement.style.display = "list-item";
+				}
+			} else {
+				// Code for Node that have Steps : 0
+				var searchFieldVal = document.getElementById("search-steps").value;
+				var titleFilter = document.getElementsByName("stepsfilter")[0].value;
+				var objArr = [ nodeObjects[ee].parentElement ];
+				//Check the search Algorithm
+				if (searchFieldVal.trim() == "") {
+					setNotHighlightStepObjectId(objArr[0]);
+				} else {
+					if (titleFilter == "not-contains") {
+						notContainsSearchStepsElements(objArr, searchFieldVal);
+					} else if (titleFilter == "contains-multiple") {
+						containsMultipleSearchStepsElements(objArr,
+								searchFieldVal);
+					}
+				}
+			}
+		}
+
+		initTitlesOffestArray();
+	}
+
+	function performStepsSearch(obj) {
+		var parentObj = obj;
+		do {
+			parentObj = parentObj.parentElement;
+			console.log(parentObj.nodeName);
+		} while (parentObj.nodeName != "OL");
+		var searchFieldVal = obj.value;
+		var allObjs = parentObj.children;
+
+		for (i = 0; i < allObjs.length; i++) {
+			if (allObjs[i].tagName == "LI") {
+				var str = allObjs[i].textContent;
+				if (str.toLowerCase().includes(searchFieldVal.toLowerCase())) {
+					allObjs[i].style.display = "list-item";
+				} else {
+					allObjs[i].style.display = "none";
+				}
+
+				if (str == "") {
+					allObjs[i].style.display = "list-item";
+				}
+			}
+		}
+	}
+
+	function checkUncheck(obj) {
+		var parentObj = obj;
+		do {
+			parentObj = parentObj.parentElement;
+		} while (parentObj.nodeName != "LI");
+		if (obj.checked) {
+			parentObj.style.background = "lightgrey";
+			parentObj.style.borderRadius = "5px";
+			//parentObj.style.boxShadow='3px 3px 10px 0px lightgrey';
+		} else {
+			parentObj.style = "";
+		}
+	}
+
+	function checkUncheckTitle(obj) {
+		/*var parentObj=obj;
+			do{		
+				parentObj=parentObj.parentElement;
+			}while(parentObj.nodeName!='LI');*/
+
+		if (obj.checked) {
+			obj.nextElementSibling.style.background = "lightgrey";
+			obj.nextElementSibling.style.borderBottomColor = "red";
+			obj.nextElementSibling.style.borderRadius = "5px";
+			//obj.nextElementSibling.style.boxShadow='3px 3px 10px 0px lightgrey';
+		} else {
+			obj.nextElementSibling.style = "";
+		}
+	}
+
+	function checkUncheckNode(obj) {
+		/*var parentObj=obj;
+			do{		
+				parentObj=parentObj.parentElement;
+			}while(parentObj.nodeName!='DIV');*/
+
+		if (obj.checked) {
+			obj.nextElementSibling.style.background = "lightgrey";
+			obj.nextElementSibling.style.borderBottomColor = "red";
+			obj.nextElementSibling.style.borderRadius = "5px";
+			//obj.nextElementSibling.style.boxShadow='3px 3px 10px 0px lightgrey';
+		} else {
+			obj.nextElementSibling.style = "";
+		}
+	}
+
+	function getElementsByXPath(xpath, parent) {
+		let results = [];
+		let query = document.evaluate(xpath, parent || document, null,
+				XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+		for (let i = 0, length = query.snapshotLength; i < length; ++i) {
+			results.push(query.snapshotItem(i));
+		}
+		return results;
+	}
+
+	function assignQuickAccessIds() {
+		var titleTextElements = getElementsByXPath("//div[@class='title']//div[@class='title-text']");
+		for (i = 0; i < titleTextElements.length; i++) {
+			titleTextElements[i].setAttribute("id", "quickAccess" + i);
+		}
+	}
+
+	function w3_open() {
+		document.getElementById("left-container").style.width = "69%";
+		document.getElementById("sticky-header").style.marginLeft = "32%";
+		document.getElementById("sticky-header-data").style.width = "69%";
+		document.getElementById("sticky-header").style.left = "0px";
+		document.getElementById("content").style.marginLeft = "32%";
+		document.getElementById("mySidebar").style.width = "30%";
+		document.getElementById("makeItFixed").style.width = "30%";
+		document.getElementById("mySidebar").style.display = "block";
+		initTitlesOffestArray();
+	}
+
+	function w3_close() {
+		document.getElementById("left-container").style = "";
+		document.getElementById("content").style = "";
+		document.getElementById("mySidebar").style.display = "none";
+		document.getElementById("sticky-header").style = "";
+		document.getElementById("sticky-header-data").style = "";
+		initTitlesOffestArray();
+	}
+
+	window.onscroll = function() {
+		stickyHeaderFunc();
+	};
+
+	var stickyHeader = getElementsByXPath("//div[@id='sticky-header']");
+
+	var testTitlesOffsetArr;
+
+	function initTitlesOffestArray() {
+		var titleLiElements = getElementsByXPath("//li[@class='test'][not(@style='display: none;')]");
+		testTitlesOffsetArr = new Array(titleLiElements.length);
+		for (i = 0; i < titleLiElements.length; i++) {
+			testTitlesOffsetArr[i] = titleLiElements[i].offsetTop;
+		}
+	}
+
+	function stickyHeaderFunc() {
+		var titleDivElements = getElementsByXPath("//li[@class='test'][not(@style='display: none;')]//div[@class='title']");
+		var titleDivCheckBoxElements = getElementsByXPath("//li[@class='test'][not(@style='display: none;')]/input");
+		var stickyHeaderCheckbox = getElementsByXPath("//div[@id='sticky-header']/input");
+
+		for (i = 0; i < titleDivElements.length; i++) {
+			if (window.pageYOffset < 200) {
+				stickyHeader[0].classList.remove("stickyVisible");
+			} else if (window.pageYOffset + 130 > testTitlesOffsetArr[i]) {
+				if (stickyHeader[0].firstElementChild.firstElementChild != null) {
+					stickyHeader[0].firstElementChild.firstElementChild
+							.remove();
+				}
+				var clnTitle = titleDivElements[i].cloneNode(true);
+				clnTitle.setAttribute("class", "NONE");
+				stickyHeader[0].firstElementChild.appendChild(clnTitle);
+				stickyHeader[0].classList.add("stickyVisible");
+				stickyHeader[0].firstElementChild.firstElementChild.style.margin = "0px 0px 0px 0px";
+				stickyHeaderCheckbox[0].checked = titleDivCheckBoxElements[i].checked;
+			}
+		}
+	}
+	
+
+	/*
+	function stikyHeaderHideShowSteps() {
+		var stickyHeaderTitleId = getElementsByXPath("//span[@id='sticky-header-data']//div[@class='title-text']")[0].id;
+		var matchingTitleObject = getElementsByXPath("//div[@id='"
+				+ stickyHeaderTitleId + "']//ancestor::div[@class='title']")[0];
+
+		var value = matchingTitleObject.nextElementSibling;
+		if (value != null) {
+			if (value.style.display == "" || value.style.display == "none")
+				value.style.display = "block";
+			else if (value.style.display == "block")
+				value.style.display = "none";
+		}
+		initTitlesOffestArray();
+	}*/
+
+	function stikyHeaderFindAndCheckUncheckTitle() {
+		var stickyHeaderTitleId = getElementsByXPath("//span[@id='sticky-header-data']//div[@class='title-text']")[0].id;
+		var matchingTitleObjectCheckbox = getElementsByXPath("//div[@id='"
+				+ stickyHeaderTitleId + "']//ancestor::li[@class='test']/input")[0];
+		matchingTitleObjectCheckbox.click();
+	}
+
+	function hideShowQuicViewNextList(obj) {
+		var nextEle = obj.nextElementSibling;
+
+		if (nextEle != null) {
+			if (nextEle.style.display == "none") {
+				nextEle.style.display = "block";
+				obj.className = "add-custom-arrow";
+			} else {
+				nextEle.style.display = "block";
+				nextEle.style.display = "none";
+				obj.className = "add-custom-arrow collapsed";
+			}
+		}
+	}
+	
+	function downloadTestData(val){
+	
+		var htmlContent = val.parentElement.parentElement.parentElement.parentElement.outerHTML;
+		htmlContent = htmlContent.replaceAll("display: none;","")
+		var blob = new Blob([htmlContent], { type: 'text/html' });
+
+		// Create a link element
+		var a = document.createElement('a');
+		a.style.display = 'none';
+		document.body.appendChild(a);
+
+		// Set the link's attributes
+		a.href = window.URL.createObjectURL(blob);
+		a.download = 'SingleTest.html';
+
+		// Simulate a click on the link
+		a.click();
+
+		// Clean up
+		window.URL.revokeObjectURL(a.href);
+		document.body.removeChild(a);	
+	
+	}
+	
+	function downloadFile() {
+		// Create a blob containing the HTML content
+		var htmlContent = document.children[0].outerHTML;
+		var blob = new Blob([htmlContent], { type: 'text/html' });
+
+		// Create a link element
+		var a = document.createElement('a');
+		a.style.display = 'none';
+		document.body.appendChild(a);
+
+		// Set the link's attributes
+		a.href = window.URL.createObjectURL(blob);
+		a.download = 'Report.html';
+
+		// Simulate a click on the link
+		a.click();
+
+		// Clean up
+		window.URL.revokeObjectURL(a.href);
+		document.body.removeChild(a);
+	}
+	
+</script>
+    
+</html>

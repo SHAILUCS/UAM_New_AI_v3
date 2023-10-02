@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Adarsh_Suite" verbose="1" thread-count="2" parallel="methods">
+	<parameter name="remoteURL" value="https://shailendrarajawa_VdY2Ec:B1eyFDQA4pfxXESH3g1D@hub-cloud.browserstack.com/wd/hub" /><!-- http://192.168.0.181:4444/wd/hub -->
+	<listeners>
+		<listener class-name="com.listener.Custom_TestNGListener" />
+	</listeners>
+
+	<!-- ${environment} -->
+
+	<test name="Adarsh_Test">
+		<parameter name="JSON_FILE_NAME" value="config-web-bs-grid.json" />
+		<parameter name="JSON_OBJECT_NAME" value="win-10-chrome" />
+		
+		<parameter name="environment" value="USER-DEV" />
+		<parameter name="appType_Web_App" value="Web" />
+		<parameter name="platform_Desktop_Mobile" value="Desktop" />
+		<parameter name="locale" value="" />
+		
+		<classes>
+			<class name="test.dev.Dev_Test_Adarsh">
+				<methods>
+
+					<!-- <include name="loginMyUser11" /> -->
+					<!-- <include name="login_Invalid" /> -->
+					<!-- <include name="userAlredyExist" /> -->
+					<!-- <include name = "newUserpermission"/> -->
+					<!-- <include name="addUserGroup" /> -->
+					<include name="addNewUser" />
+
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+
+
+</suite>
