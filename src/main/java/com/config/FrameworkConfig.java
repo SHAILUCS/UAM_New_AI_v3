@@ -14,7 +14,7 @@ public class FrameworkConfig {
 	/**
 	 * This constant holds the project name which is displayed in the HTML Reports
 	 */
-	public static final String PROJECT = "Blum Telehealth";
+	public static final String PROJECT = "UAM";
 	
 	/**
 	 * {@code captureSnapshots} : set false for speeding up the execution, It will
