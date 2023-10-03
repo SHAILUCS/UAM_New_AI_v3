@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Adarsh_Suite" verbose="1" thread-count="2" parallel="methods">
-	<parameter name="remoteURL" value="https://shailendrarajawa_VdY2Ec:B1eyFDQA4pfxXESH3g1D@hub-cloud.browserstack.com/wd/hub" /><!-- http://192.168.0.181:4444/wd/hub -->
+	<parameter name="remoteURL" value="" /><!-- http://192.168.0.181:4444/wd/hub -->
 	<listeners>
 		<listener class-name="com.listener.Custom_TestNGListener" />
 	</listeners>
