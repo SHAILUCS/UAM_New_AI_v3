@@ -42,8 +42,8 @@ public class add_Groups {
 
 	@FindBy(xpath = "(//input[contains(@type,'checkbox')][contains(@name,'select-users')])")
 	public WebElement checkbox_UserMembers;
-	
-	@FindBy(xpath="(//input[contains(@type,'checkbox')][contains(@name,'select-permissions')])[1]")
+
+	@FindBy(xpath = "(//input[contains(@type,'checkbox')][contains(@name,'select-permissions')])[1]")
 	public WebElement checkbox_AttachedPermissions;
 
 	@FindBy(xpath = "//button[contains(.,'Save Changes')]")
@@ -51,8 +51,9 @@ public class add_Groups {
 
 	@FindBy(xpath = "//strong[contains(.,'User Group Creation.')]")
 	public WebElement successMsg_Content;
-	
-	
+
+	@FindBy(xpath = "//button[contains(@class,'fixed top-[4rem] 3xl:top-24 mt-3 3xl:mt-0 z-20 ease-in duration-200 inline-block left-[5px] s-R5nWV-p4g4tN')]")
+	public WebElement side_MenuBar;
 
 	private WebPage com;
 
@@ -78,7 +79,7 @@ public class add_Groups {
 		String baseUrl = dataTable.getValue(16, "url");
 		com.get(baseUrl);
 
-		Reporter.INFO( "Fired up url: " + "<br/><b style='font-size: small;'>" + baseUrl + "</b>");
+		Reporter.INFO("Fired up url: " + "<br/><b style='font-size: small;'>" + baseUrl + "</b>");
 
 		return this;
 	}
@@ -113,9 +114,12 @@ public class add_Groups {
 				com.sendKeys("email", email_InputName, username);
 				com.sendKeys("pwd", text_Password, password);
 				com.click(button_Login);
-
 				com.wait(15);
+				com.click(side_MenuBar);
+
+				com.wait(5);
 				com.click(text_USerGroups, "Click on user Groups");
+
 				com.wait(15);
 				com.click(button_AddNewRecord, "Add new button");
 				com.sendKeys(inputText_GroupName, "Test Grop Name");
@@ -124,6 +128,7 @@ public class add_Groups {
 				com.sendKeys(com.switchTo_ActiveElement(), Keys.DOWN, Keys.ENTER);
 				com.click(checkbox_UserMembers, "Available active user checkbox");
 				com.click(checkbox_AttachedPermissions, "Attaches Permision");
+
 				com.click(button_SaveChange);
 				com.wait(5);
 				com.isElementPresent(successMsg_Content, "Successfull msg");

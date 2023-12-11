@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Adarsh_Suite" verbose="1" thread-count="2" parallel="methods">
+<suite name="Adarsh_Suite" verbose="1" thread-count="2"
+	parallel="methods">
 	<parameter name="remoteURL" value="" /><!-- http://192.168.0.181:4444/wd/hub -->
 	<listeners>
 		<listener class-name="com.listener.Custom_TestNGListener" />
@@ -8,14 +9,15 @@
 	<!-- ${environment} -->
 
 	<test name="Adarsh_Test">
-		<parameter name="JSON_FILE_NAME" value="config-web-bs-grid.json" />
+		<parameter name="JSON_FILE_NAME"
+			value="config-web-bs-grid.json" />
 		<parameter name="JSON_OBJECT_NAME" value="win-10-chrome" />
-		
+
 		<parameter name="environment" value="USER-DEV" />
 		<parameter name="appType_Web_App" value="Web" />
 		<parameter name="platform_Desktop_Mobile" value="Desktop" />
 		<parameter name="locale" value="" />
-		
+
 		<classes>
 			<class name="test.dev.Dev_Test_Adarsh">
 				<methods>
@@ -23,9 +25,11 @@
 					<!-- <include name="loginMyUser11" /> -->
 					<!-- <include name="login_Invalid" /> -->
 					<!-- <include name="userAlredyExist" /> -->
-					<!-- <include name = "newUserpermission"/> -->
+					<!-- <include name = "newUserpermission"/ -->
 					<!-- <include name="addUserGroup" /> -->
-					<include name="addNewUser" />
+					<!-- <include name="addNewUser" /> -->
+					<!-- <include name="user_Update"/> -->
+					<include name="add_DeviceType"/>
 
 				</methods>
 			</class>

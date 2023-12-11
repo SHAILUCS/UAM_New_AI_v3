@@ -4,15 +4,14 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import or.user.common.Add_User;
+import or.user.common.DeviceType;
 import or.user.common.Login_Invalid_Uam;
 import or.user.common.UAM_Login;
 import or.user.common.add_Groups;
 import or.user.common.already_RegisterUser;
 import or.user.common.create_NewUserPermissionDetail;
 import or.user.common.register_NewUser;
-
-
-
+import or.user.common.update_User;
 
 public class Dev_Test_Adarsh {
 
@@ -21,7 +20,7 @@ public class Dev_Test_Adarsh {
 	private static final long timeOutInSec = 0;
 	private WebElement sd;
 	private String Front;
-	
+
 	@Test(description = "Scenario, Login a valid credential and verify Dashboard text", groups = { "func only" })
 	public void loginMyUser11() {
 
@@ -57,10 +56,9 @@ public class Dev_Test_Adarsh {
 
 	@Test(description = "Scenario, verify a mail confirmation msg for new register user", groups = { "func only" })
 	public void addNewUser() {
-		
+
 		Add_User au = new Add_User();
-		au.load_App_URL();
-		au.add_User("Log_Uam", sd);
+		au.add_NewUserPer("Log_Uam", sd);
 
 	}
 
@@ -70,6 +68,22 @@ public class Dev_Test_Adarsh {
 		already_RegisterUser aru = new already_RegisterUser();
 
 		aru.verify_AlreadyExistUserVali("Already_Reg");
+
+	}
+
+	@Test(description = "Scenerio, verify update functionality for a user.", groups = { "Func only" })
+	public void user_Update() {
+
+		update_User uu = new update_User();
+		uu.verify_UserUpdateValidation("Log_Uam", sd);
+
+	}
+
+	@Test(description = "", groups = { "" })
+	private void add_DeviceType() {
+
+		DeviceType dt = new DeviceType();
+		dt.add_DeviceType_Verify("Log_Uam");
 
 	}
 

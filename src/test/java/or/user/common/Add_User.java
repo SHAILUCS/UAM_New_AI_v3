@@ -79,6 +79,9 @@ public class Add_User {
 	@FindBy(xpath = "//h5[contains(.,'Client Assets')]")
 	public WebElement verify_CheckBoxText;
 
+	@FindBy(xpath = "//button[contains(@class,'fixed top-[4rem] 3xl:top-24 mt-3 3xl:mt-0 z-20 ease-in duration-200 inline-block left-[5px] s-R5nWV-p4g4tN')]")
+	public WebElement side_MenuBar;
+
 	private WebPage com = new WebPage();
 	private WebDriver driver;
 	private By d;
@@ -97,19 +100,19 @@ public class Add_User {
 	}
 
 	public Add_User load_App_URL() {
-		
+
 		Reporter.NODE("Loading " + title + " URL");
 
 		ExcelManager dataTable = new ExcelManager(Config.getCredentialsFilePath(), SHEET_NAME);
 		String baseUrl = dataTable.getValue(13, "url");
 		com.get(baseUrl);
 
-		Reporter.INFO( "Fired up url: " + "<br/><b style='font-size: small;'>" + baseUrl + "</b>");
+		Reporter.INFO("Fired up url: " + "<br/><b style='font-size: small;'>" + baseUrl + "</b>");
 
 		return this;
 	}
 
-	public void add_User(String usertype, WebElement we) {
+	public void add_NewUserPer(String usertype, WebElement we) {
 
 		WebPage com = new WebPage();
 
@@ -139,12 +142,14 @@ public class Add_User {
 				com.sendKeys("email", email_InputName, username);
 				com.sendKeys("pwd", text_Password, password);
 				com.click(button_Login);
+				com.wait(15);
 
-				com.wait(10);
+				com.click(side_MenuBar);
+				com.wait(5);
+
 				com.click(text_User, "Click on user Groups");
-				com.wait(10);
+				com.wait(5);
 				com.click(button_AddNewRecord, "Add new button");
-
 				com.waitForElementsTobe_Present(text_UserForm, 10);
 				com.sendKeys(inputText_UserName, "Test");
 				com.sendKeys(input_Email, "Test@gmail.com");
@@ -160,15 +165,14 @@ public class Add_User {
 				com.isElementPresent(verify_Text);
 
 				com.isElementPresent(verify_CheckBoxText);
-				
+
 				com.wait(5);
 
 				com.click(input_Checkbox);
-				
 
-				// com.click(button_SaveChange);
-				// com.wait(5);
-				// com.isElementPresent(successMsg_Content, "Successfull msg");
+				com.click(button_SaveChange);
+				com.wait(10);
+				com.isElementPresent(successMsg_Content, "Successfull msg");
 
 			}
 
