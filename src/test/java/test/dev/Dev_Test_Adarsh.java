@@ -4,12 +4,13 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import or.user.common.Add_User;
-import or.user.common.DeviceType;
+import or.user.common.deviceType;
 import or.user.common.Login_Invalid_Uam;
 import or.user.common.UAM_Login;
 import or.user.common.add_Groups;
 import or.user.common.already_RegisterUser;
 import or.user.common.create_NewUserPermissionDetail;
+import or.user.common.delet_DeviceType;
 import or.user.common.register_NewUser;
 import or.user.common.update_User;
 
@@ -82,9 +83,36 @@ public class Dev_Test_Adarsh {
 	@Test(description = "", groups = { "" })
 	private void add_DeviceType() {
 
-		DeviceType dt = new DeviceType();
+		deviceType dt = new deviceType();
 		dt.add_DeviceType_Verify("Log_Uam");
 
 	}
 
+	@Test(description = "Scenerio, remove Device type and verify", groups = { "Func only" })
+	private void remove_DeviceType() {
+
+		delet_DeviceType ddt = new delet_DeviceType();
+		ddt.delete_DeviceType_Verify("Log_Uam");
+	}
+
+	@Test(description = "Scenerio, Update Device type and verify", groups = { "Func only " })
+	private void update_DeviceType() {
+
+		delet_DeviceType ddt = new delet_DeviceType();
+		ddt.update("Log_Uam");
+	}
+
+	@Test(description = "Scenerio, Update Device type and verify", groups = { "Func only " })
+	private void deviceType_Inactive() {
+
+		deviceType dt = new deviceType();
+		dt.inActive_DeviceType("Log_Uam");
+	}
+
+	@Test(description = "Scenerio, Update Device type and verify", groups = { "Func only " })
+	private void verify_ActiveDeviceType() {
+
+		deviceType dt = new deviceType();
+		dt.active_DeviceType("Log_Uam");
+	}
 }

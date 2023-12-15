@@ -8,10 +8,9 @@ import com.config.Config;
 import com.reporting.Reporter;
 import com.selenium.WebPage;
 import com.selenium.webdriver.DriverFactory;
-import com.sun.org.apache.xerces.internal.impl.xpath.XPath;
 import com.xl.ExcelManager;
 
-public class DeviceType {
+public class delet_DeviceType {
 
 	public static final String title = "add_DeviceType";
 	private static final String SHEET_NAME = Config.getEnvironment();
@@ -34,19 +33,31 @@ public class DeviceType {
 	@FindBy(id = "sidenav-item-5")
 	public WebElement device_Type;
 
-	@FindBy(xpath = "//button[contains(.,'Add New Record')]")
-	public WebElement button_Add_DeviceType;
+	@FindBy(xpath = "(//a[contains(@class,'text-blueGray-500 py-1 px-3')])[4]")
+	public WebElement toggle_Option;
 
-	@FindBy(id = "grid-group-name")
+	@FindBy(xpath = "(//span[contains(.,'Remove')])[4]")
+	public WebElement button_Remove;
+
+	@FindBy(xpath = "(//span[contains(.,'Update')])[4]")
+	public WebElement button_Update;
+
+	@FindBy(xpath = "//button[contains(.,'Confirm')]")
+	public WebElement button_Confirm;
+
+	@FindBy(xpath = "//strong[contains(.,'Deleted.')]")
+	public WebElement msg_Confirm;
+
+	@FindBy(name = "name")
 	public WebElement input_Name;
 
 	@FindBy(id = "grid-group-version")
 	public WebElement input_Version;
 
-	@FindBy(xpath = "(//div[contains(@class,'relative w-6/12 mb-4 px-2')])//option[contains(.,'No')]")
+	@FindBy(xpath = "(//div[contains(@class,'relative w-6/12 mb-4 px-2')])//option[contains(.,'Yes')]")
 	public WebElement dropdown_Prototype;
 
-	@FindBy(xpath = "(//div[contains(@class,'relative w-6/12 mb-4 px-2')])//option[contains(.,'In-Active')]")
+	@FindBy(xpath = "(//div[contains(@class,'relative w-6/12 mb-4 px-2')])//option[contains(.,'Active')]")
 	public WebElement dropdown_Status;
 
 	@FindBy(id = "grid-group-description")
@@ -54,9 +65,12 @@ public class DeviceType {
 
 	@FindBy(xpath = "//button[contains(.,'Save Changes')]")
 	public WebElement button_Submit;
-	
-	@FindBy(xpath ="//strong[contains(.,'Device Type Creation.')]")
+
+	@FindBy(xpath = "//strong[contains(.,'Device Type Creation.')]")
 	public WebElement success_Message;
+
+	@FindBy(xpath = "//strong[contains(.,'Device Type Update.')]")
+	public WebElement update_Messege;
 
 	private WebPage com;
 
@@ -66,7 +80,7 @@ public class DeviceType {
 	}
 
 	// Creating default constructor and add access modifier for using class
-	public DeviceType() {
+	public delet_DeviceType() {
 
 		// 'this' is for pointing a current class object and null pointer exception are
 		// showing when we are not using this Page factory line.
@@ -74,7 +88,7 @@ public class DeviceType {
 
 	}
 
-	public DeviceType load_App_URL() {
+	public delet_DeviceType load_App_URL() {
 
 		Reporter.NODE("Loading " + title + " URL");
 
@@ -87,7 +101,7 @@ public class DeviceType {
 		return this;
 	}
 
-	public void add_DeviceType_Verify(String usertype) {
+	public void delete_DeviceType_Verify(String usertype) {
 
 		WebPage com = new WebPage();
 
@@ -126,20 +140,76 @@ public class DeviceType {
 				com.click(device_Type, "Device type option");
 				com.wait(5);
 
-				com.click(button_Add_DeviceType, "Add device type button");
+				com.click(toggle_Option, "toggle open success");
+				com.wait(5);
+				com.click(button_Remove, "Remove button");
+				com.click(button_Confirm, "Confirm button");
 
+				com.wait(1);
+				com.isElementPresent(msg_Confirm, "Success msg");
+			}
+		}
+	}
+
+	public void update(String usertype) {
+
+		WebPage com = new WebPage();
+
+		// now we are using Config class to get a file path or sheet name.
+		ExcelManager excel = new ExcelManager(Config.getCredentialsFilePath(), Config.getEnvironment());
+
+		com.get(excel.getValue(16, "url"));
+
+		com.waitForElementTobe_Visible(email_InputName);
+
+		int rows = excel.getRowCount();
+
+		for (int i = 0; i < rows; i++) {
+
+			// System.out.println(i);
+
+			String deta = excel.getValue(i, "user type");
+
+			if (deta.equals(usertype)) {
+
+				// System.out.println(i);
+
+				String username = excel.getValue(i, "username");
+				String password = excel.getValue(i, "password");
+				com.wait(10);
+
+				com.sendKeys("email", email_InputName, username);
+				com.sendKeys("pwd", text_Password, password);
+				com.click(button_Login);
+
+				com.wait(10);
+
+				com.click(side_MenuBar, "side bar icon");
+				com.wait(5);
+
+				com.click(device_Type, "Device type option");
+				com.wait(5);
+
+				com.click(toggle_Option, "toggle open success");
+				com.wait(5);
+				com.click(button_Update, "Update button");
+
+				com.wait(2);
+
+				com.clear(input_Name);
 				com.sendKeys("Name", input_Name, "Test1");
-				com.sendKeys("Version", input_Version, "565");
+
+				com.clear(input_Version);
+				com.sendKeys("Version", input_Version, "55");
 
 				com.click(dropdown_Prototype, "prototype dropdown");
 				com.click(dropdown_Status, "prototype dropdown");
 				com.sendKeys("Description", box_Description, "Test");
 				com.click(button_Submit, "Submit Button");
-				com.wait(5);
-				com.isElementPresent(success_Message);
+				com.wait(2);
+				com.isElementPresent(update_Messege, "Confirm msg");
 
 			}
-
 		}
 
 	}

@@ -29,7 +29,11 @@
 					<!-- <include name="addUserGroup" /> -->
 					<!-- <include name="addNewUser" /> -->
 					<!-- <include name="user_Update"/> -->
-					<include name="add_DeviceType"/>
+					<!-- <include name="add_DeviceType"/> -->
+					<!-- <include name ="remove_DeviceType"/> -->
+					<!-- <include name ="update_DeviceType"/> -->
+					<!-- <include name ="deviceType_Inactive"/> -->
+					<include name="verify_ActiveDeviceType" />
 
 				</methods>
 			</class>
